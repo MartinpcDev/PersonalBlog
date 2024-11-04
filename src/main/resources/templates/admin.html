@@ -3,21 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" th:href="@{/home.css}">
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Document</title>
 </head>
 <body>
-<main>
-  <h1>Admin Page</h1>
-  <main>
-    <h1>Personal Blog</h1>
-    <div class="item" th:each="article: ${articles}">
-      <div class="content">
-        <a class="link" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}"></a>
-        <span class="data" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
-      </div>
-    </div>
-  </main>
+<main class="text-gray-600 body-font container px-5 py-24 mx-auto">
+  <div class="flex flex-col text-center w-full mb-20">
+    <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Seccion
+      Administrativa</h1>
+    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Area de publiaciones y administracion</p>
+  </div>
+  <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+    <table class="table-auto w-full text-left whitespace-no-wrap">
+      <thead>
+      <tr>
+        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
+          Titulo
+        </th>
+        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+          Fecha
+        </th>
+        <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+        </th>
+        <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="article: ${articles}">
+        <td class="px-4 py-3" th:text="${article.title}"></td>
+        <td class="px-4 py-3" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></td>
+        <td class="px-4 py-3 text-center text-amber-400">
+          <a th:href="@{/admin/edit/{id}(id=${article.id})}">Edit</a>
+        </td>
+        <td class="px-4 py-3 text-center text-rose-600">
+          <a th:href="@{/admin/delete/{id}(id=${article.id})}">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </main>
 </body>
 </html>

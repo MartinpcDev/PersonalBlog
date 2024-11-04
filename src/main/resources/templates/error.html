@@ -6,8 +6,13 @@
   <title>Document</title>
 </head>
 <body>
-<h1>404 - Página No Encontrada</h1>
-<p>Lo sentimos, la página que estás buscando no existe.</p>
-<a th:href="@{/home}">Volver a la página de inicio</a>
+<main class="text-gray-600 body-font container px-5 py-24 mx-auto">
+  <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+    <h1 class="text-red-900 font-medium title-font tracking-wider text-xl">404 - Página No
+      Encontrada</h1>
+    <span class="text-red-500">Lo sentimos, la página que estás buscando no existe.</span>
+    <a th:href="@{/home}" class="leading-relaxed text-lg">Volver a la página de inicio</a>
+  </div>
+</main>
 </body>
 </html>

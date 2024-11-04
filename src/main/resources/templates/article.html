@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/article.css">
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Article Page</title>
 </head>
 <body>
-<main>
-  <div class="card" th:if="${article} != null">
-    <h1 class="card_text" th:text="${article.title}"></h1>
-    <span class="card_fecha" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
-    <p class="card_content" th:text="${article.content}"></p>
+<main class="text-gray-600 body-font container px-5 py-24 mx-auto">
+  <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center" th:if="${article} != null">
+    <h1 class="text-gray-900 font-medium title-font tracking-wider text-xl"
+        th:text="${article.title}"></h1>
+    <span class="text-gray-500" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
+    <p class="leading-relaxed text-lg" th:text="${article.content}"></p>
   </div>
-  <h1 class="message" th:if="${article} == null">No existe este articulo</h1>
 </main>
 </body>
 </html>

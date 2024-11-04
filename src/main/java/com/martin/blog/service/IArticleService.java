@@ -8,4 +8,8 @@ public interface IArticleService {
   List<Article> getAllArticles();
 
   Article getArticleById(Integer id);
+
+  void updateArticle(Integer id, String title, String content, String date);
+
+  void deleteArticle(Integer id);
 }

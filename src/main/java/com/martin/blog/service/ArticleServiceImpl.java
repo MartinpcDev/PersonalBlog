@@ -1,6 +1,8 @@
 package com.martin.blog.service;
 
 import com.martin.blog.model.Article;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -42,5 +44,29 @@ public class ArticleServiceImpl implements IArticleService {
         .filter(a -> Objects.equals(a.getId(), id)).findFirst();
 
     return article.orElse(null);
+  }
+
+  @Override
+  public void updateArticle(Integer id, String title, String content, String date) {
+    Optional<Article> articleExists = articles.stream()
+        .filter(a -> Objects.equals(a.getId(), id))
+        .findFirst();
+    if (articleExists.isPresent()) {
+      Article updateArticle = articleExists.get();
+      updateArticle.setTitle(title);
+      updateArticle.setContent(content);
+      try {
+        updateArticle.setCreatedAt(new SimpleDateFormat("yyyy-MM-dd").parse(date));
+      } catch (ParseException e) {
+        System.out.println(e.getMessage());
+      }
+    } else {
+      System.out.println("El article no existe");
+    }
+  }
+
+  @Override
+  public void deleteArticle(Integer id) {
+    articles.removeIf(a -> Objects.equals(a.getId(), id));
   }
 }
