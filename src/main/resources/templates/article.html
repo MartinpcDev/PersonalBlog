@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Article Page</title>
+</head>
+<body>
+<div th:if="${article} != null">
+  <h1 th:text="${article.title}"></h1>
+  <span th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
+  <p th:text="${article.content}"></p>
+</div>
+<h1 th:if="${article} == null">No existe este articulo</h1>
+</body>
+</html>

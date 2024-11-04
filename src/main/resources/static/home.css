@@ -1,0 +1,27 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.item {
+  width: 50%;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center
+}
+
+.link {
+  font-size: 25px;
+  font-weight: 800
+}
+
+.data {
+  color: gray
+}

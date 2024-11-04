@@ -3,19 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/home.css">
   <title>Personal Blog</title>
 </head>
 <body>
-<main style="display:flex;flex-direction:column;justify-content: center;align-items: center">
+<main>
   <h1>Personal Blog</h1>
-  <div th:each="article: ${articles}"
-       style="width: 50%">
-    <div
-        style="display: flex;flex-direction: row;justify-content: space-between;font-size: 20px;align-items: center">
-      <a th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}"
-         style="font-size: 25px;font-weight: 800"></a>
-      <span th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"
-            style="color: gray"></span>
+  <div class="item" th:each="article: ${articles}">
+    <div class="content">
+      <a class="link" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}"></a>
+      <span class="data" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
     </div>
   </div>
 </main>
