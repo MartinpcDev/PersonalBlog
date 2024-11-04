@@ -50,4 +50,18 @@ public class AdminController {
     model.addAttribute("articles", articleService.getAllArticles());
     return "redirect:/admin";
   }
+
+  @GetMapping("/new")
+  public String getNewPage() {
+    return "nuevo";
+  }
+
+  @PostMapping("/created")
+  public String getCreatedPage(
+      @RequestParam String title,
+      @RequestParam String content, Model model) {
+    articleService.saveArticle(title, content);
+    model.addAttribute("articles", articleService.getAllArticles());
+    return "admin";
+  }
 }

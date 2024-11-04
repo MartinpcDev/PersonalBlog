@@ -12,4 +12,6 @@ public interface IArticleService {
   void updateArticle(Integer id, String title, String content, String date);
 
   void deleteArticle(Integer id);
+
+  void saveArticle(String title, String content);
 }

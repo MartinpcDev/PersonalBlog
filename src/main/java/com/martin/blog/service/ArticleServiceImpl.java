@@ -69,4 +69,17 @@ public class ArticleServiceImpl implements IArticleService {
   public void deleteArticle(Integer id) {
     articles.removeIf(a -> Objects.equals(a.getId(), id));
   }
+
+  @Override
+  public void saveArticle(String title, String content) {
+    int id = articles.size() + 1;
+    int finalId = id;
+    Optional<Article> articleExists = articles.stream()
+        .filter(a -> Objects.equals(a.getId(), finalId)).findFirst();
+    if (articleExists.isPresent()) {
+      id++;
+    }
+    Article article = new Article(id, title, content);
+    articles.add(article);
+  }
 }
