@@ -23,9 +23,15 @@ public class HomeController {
     return "home";
   }
 
+
   @GetMapping("/article/{id}")
   public String getArticle(@PathVariable Integer id, Model model) {
     model.addAttribute("article", articleService.getArticleById(id));
     return "article";
+  }
+
+  @GetMapping("/error")
+  public String getErrorPage() {
+    return "error";
   }
 }

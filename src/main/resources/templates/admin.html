@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/home.css}">
+  <title>Document</title>
+</head>
+<body>
+<main>
+  <h1>Admin Page</h1>
+  <main>
+    <h1>Personal Blog</h1>
+    <div class="item" th:each="article: ${articles}">
+      <div class="content">
+        <a class="link" th:text="${article.title}" th:href="@{/article/{id}(id=${article.id})}"></a>
+        <span class="data" th:text="${#dates.format(article.createdAt,'MMMM d, yyyy')}"></span>
+      </div>
+    </div>
+  </main>
+</main>
+</body>
+</html>

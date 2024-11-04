@@ -1,0 +1,26 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+}
+
+.card {
+  width: 50%;
+}
+
+.card_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20px;
+  align-items: center
+}
+
+.card_fecha {
+  color: gray
+}
+
+.card_content {
+  font-size: 26px;
+}
