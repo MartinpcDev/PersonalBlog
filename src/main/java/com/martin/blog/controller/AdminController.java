@@ -1,6 +1,7 @@
 package com.martin.blog.controller;
 
 import com.martin.blog.service.IArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ public class AdminController {
 
   private final IArticleService articleService;
 
+  @Autowired
   public AdminController(IArticleService articleService) {
     this.articleService = articleService;
   }
